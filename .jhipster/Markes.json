@@ -1,0 +1,32 @@
+{
+    "name": "Markes",
+    "fields": [
+        {
+            "fieldName": "markes",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "student",
+            "otherEntityName": "student",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "subject",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "markes"
+        }
+    ],
+    "changelogDate": "20181221051753",
+    "entityTableName": "markes",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
