@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "JBEMSchoolManagement",
+    "packageName": "com.school.management",
+    "packageFolder": "com/school/management",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "5.7.1",
+    "jwtSecretKey": "YWUzN2U5YTdkMmVlNDk5YmUyOTYyODVhZDYwMjY5MjlmMjQ3NWNhOTU4OWQyMGY5M2Y0ZDM5N2VkNjA3NTgxOGU1NzIxN2QxNzIxMDlhNDQ4ZDg0YzU5MDRlMGU4ZGFmY2M3MDI0Y2QxZmJhNTM2YmRhNmUyNGE1YjUyOTNmNWI=",
+    "otherModules": []
+  },
+  "git-provider": "GitHub",
+  "git-company": "ppavan895",
+  "repository-name": "jbemschoolmanagement"
+}
