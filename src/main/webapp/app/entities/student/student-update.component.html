@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-heading">Create or edit a Student</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!student.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="student.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="student.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_admissionNumber">Admission Number</label>
+                    <input type="text" class="form-control" name="admissionNumber" id="field_admissionNumber"
+                        [(ngModel)]="student.admissionNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_phoneNumber">Phone Number</label>
+                    <input type="number" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="student.phoneNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="student.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_photoPath">Photo Path</label>
+                    <input type="text" class="form-control" name="photoPath" id="field_photoPath"
+                        [(ngModel)]="student.photoPath" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fee">Fee</label>
+                    <select class="form-control" id="field_fee" name="fee" [(ngModel)]="student.fee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studentFeeOption.id === student.fee?.id ? student.fee : studentFeeOption" *ngFor="let studentFeeOption of fees; trackBy: trackStudentFeeById">{{studentFeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_className">Class Name</label>
+                    <select class="form-control" id="field_className" name="className" [(ngModel)]="student.className" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="classNameOption.id === student.className?.id ? student.className : classNameOption" *ngFor="let classNameOption of classnames; trackBy: trackClassNameById">{{classNameOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

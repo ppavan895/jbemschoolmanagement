@@ -1,0 +1,48 @@
+{
+    "name": "ClassName",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "classNumber",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "teacher",
+            "otherEntityName": "teacher",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "section",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "className"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "studentId",
+            "otherEntityName": "student",
+            "otherEntityRelationshipName": "className"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "subject",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "className"
+        }
+    ],
+    "changelogDate": "20181221051750",
+    "entityTableName": "class_name",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
