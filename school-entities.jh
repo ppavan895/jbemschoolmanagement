@@ -1,0 +1,51 @@
+entity Teacher {
+	name String
+    phoneNumber Long
+    address String
+    photo ImageBlob
+}
+
+entity Student {
+	name String
+    admissionNumber String
+    phoneNumber Long
+    address String
+    photo ImageBlob 
+}
+
+entity ClassName {
+	name String
+    classNumber Long
+}
+entity Section {
+	name String
+    sectionNumber Long 
+}
+entity Subject  {
+	name String
+    markes Long 
+}
+entity Markes  {
+    markes Long 
+}
+entity Attendence {
+    date LocalDate
+    present Boolean
+}
+entity StudentFee {
+    totalFee Long
+    feePaid  Long
+}
+relationship OneToMany {
+	Teacher{classTeacher} to ClassName,
+    ClassName{section} to Section,
+    ClassName{studentId} to Student,
+    ClassName{subject} to Subject,
+    Student{attendence} to Attendence,
+    Student{markes} to Markes,
+    Markes{subject} to Subject
+    }
+    relationship OneToOne {
+     Student{fee} to StudentFee,
+    }
+
