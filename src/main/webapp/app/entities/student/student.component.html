@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span>Students</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-student" [routerLink]="['/student/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Student
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="students">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Admission Number</span></th>
+            <th><span>Phone Number</span></th>
+            <th><span>Address</span></th>
+            <th><span>Photo</span></th>
+            <th><span>Fee</span></th>
+            <th><span>Class Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let student of students ;trackBy: trackId">
+                <td><a [routerLink]="['/student', student.id, 'view' ]">{{student.id}}</a></td>
+                <td>{{student.name}}</td>
+                <td>{{student.admissionNumber}}</td>
+                <td>{{student.phoneNumber}}</td>
+                <td>{{student.address}}</td>
+                <td>
+                    <a *ngIf="student.photo" (click)="openFile(student.photoContentType, student.photo)">
+                        <img [src]="'data:' + student.photoContentType + ';base64,' + student.photo" style="max-height: 30px;" alt="student image"/>
+                    </a>
+                    <span *ngIf="student.photo">{{student.photoContentType}}, {{byteSize(student.photo)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="student.fee">
+                        <a [routerLink]="['../student-fee', student.fee?.id, 'view' ]" >{{student.fee?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="student.className">
+                        <a [routerLink]="['../class-name', student.className?.id, 'view' ]" >{{student.className?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/student', student.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/student', student.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'student', { outlets: { popup: student.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
