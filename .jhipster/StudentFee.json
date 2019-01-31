@@ -1,0 +1,23 @@
+{
+    "name": "StudentFee",
+    "fields": [
+        {
+            "fieldName": "totalFee",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "feePaid",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190131121354",
+    "entityTableName": "student_fee",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
